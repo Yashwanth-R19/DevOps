@@ -1,0 +1,58 @@
+yash-19@DESKTOP-JP36C71:~$ ls
+OS  linux_lab
+yash-19@DESKTOP-JP36C71:~$ cd linux_lab/
+yash-19@DESKTOP-JP36C71:~/linux_lab$ ls
+output.txt  script.sh  students.txt
+yash-19@DESKTOP-JP36C71:~/linux_lab$ nano students.txt
+yash-19@DESKTOP-JP36C71:~/linux_lab$ cat students.txt
+Alice,Python
+Bob,Docker
+Charlie,Linux
+David,Python
+Eva,Docker
+Frank,Linux
+Grace,Python
+Henry,Docker
+yash-19@DESKTOP-JP36C71:~/linux_lab$ grep "Python" students.txt
+Alice,Python
+David,Python
+Grace,Python
+yash-19@DESKTOP-JP36C71:~/linux_lab$ grep "Docker" students.txt
+Bob,Docker
+Eva,Docker
+Henry,Docker
+yash-19@DESKTOP-JP36C71:~/linux_lab$ grep "Linux" students.txt
+Charlie,Linux
+Frank,Linux
+yash-19@DESKTOP-JP36C71:~/linux_lab$ grep -c "Python" students.txt
+3
+yash-19@DESKTOP-JP36C71:~/linux_lab$ grep -c "Python" students.txt > output.txt
+yash-19@DESKTOP-JP36C71:~/linux_lab$ cat output.txt
+3
+yash-19@DESKTOP-JP36C71:~/linux_lab$ nano script.sh
+yash-19@DESKTOP-JP36C71:~/linux_lab$ chmod +x script.sh
+yash-19@DESKTOP-JP36C71:~/linux_lab$ ./script.sh
+Welcome to Linux Lab
+Current User: yash-19
+Current Working Directory: /home/yash-19/linux_lab
+Current Date and Time: Wed Aug  5 18:05:53 UTC 2026
+yash-19@DESKTOP-JP36C71:~/linux_lab$ export COURSE_NAME="Linux Fundamentals"
+yash-19@DESKTOP-JP36C71:~/linux_lab$ echo $COURSE_NAME
+Linux Fundamentals
+yash-19@DESKTOP-JP36C71:~/linux_lab$ printenv COURSE_NAME
+Linux Fundamentals
+yash-19@DESKTOP-JP36C71:~/linux_lab$ nano script.sh
+
+
+Use "fg" to return to nano.
+
+[1]+  Stopped                 nano script.sh
+yash-19@DESKTOP-JP36C71:~/linux_lab$ nano script.sh
+yash-19@DESKTOP-JP36C71:~/linux_lab$ nano script.sh
+yash-19@DESKTOP-JP36C71:~/linux_lab$ ./script.sh
+Welcome to Linux Lab
+Current User: yash-19
+Current Working Directory: /home/yash-19/linux_lab
+Current Date and Time: Wed Aug  5 18:08:53 UTC 2026
+Course Name: Linux Fundamentals
+yash-19@DESKTOP-JP36C71:~/linux_lab$ 
