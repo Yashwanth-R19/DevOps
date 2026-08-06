@@ -1,0 +1,7 @@
+/model.pkl
+/metrics.json
+.venv/
+data/
+.dvc/config
+mlruns/
+*.db
