@@ -2,10 +2,10 @@ name: MLOps CI/CD
 
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
 
   push:
-    branches: [main]
+    branches: [master]
 
 env:
   PYTHON_VERSION: "3.12"
