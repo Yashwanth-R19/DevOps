@@ -1,0 +1,103 @@
+name: MLOps CI/CD
+
+on:
+  pull_request:
+    branches: [main]
+
+  push:
+    branches: [main]
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+
+  # Runs on every PR and push: quick sanity checks, no deployment.
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        working-directory: Lab-Ex-5
+        run: pip install -r requirements.txt
+
+      - name: Unit tests
+        working-directory: Lab-Ex-5
+        run: pytest tests -v
+
+  # Runs the actual ML pipeline.
+  train_and_evaluate:
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        working-directory: Lab-Ex-5
+        run: pip install -r requirements.txt
+
+      - name: Prepare data
+        working-directory: Lab-Ex-5
+        run: python src/prepare.py
+
+      - name: Train model
+        working-directory: Lab-Ex-5
+        run: python src/train.py
+
+      - name: Evaluate model (quality gate)
+        working-directory: Lab-Ex-5
+        run: python src/evaluate.py
+
+      - name: Upload model + metrics as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-and-metrics
+          path: |
+            Lab-Ex-5/model/
+            Lab-Ex-5/metrics.json
+
+  # Deploy only after passing the quality gate.
+  deploy_to_huggingface:
+    needs: train_and_evaluate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        working-directory: Lab-Ex-5
+        run: pip install -r requirements.txt
+
+      - name: Download model artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: model-and-metrics
+          path: Lab-Ex-5
+
+      - name: Push model to Hugging Face Hub
+        working-directory: Lab-Ex-5
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ vars.HF_REPO_ID }}
+        run: python src/register.py
