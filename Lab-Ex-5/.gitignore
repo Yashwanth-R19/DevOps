@@ -1,0 +1,13 @@
+# Generated pipeline artifacts (recreated by prepare.py / train.py / evaluate.py)
+data/
+model/
+metrics.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
