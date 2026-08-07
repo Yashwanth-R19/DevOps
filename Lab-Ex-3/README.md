@@ -1,8 +1,8 @@
-# 🏠 Boston Housing Regression with MLflow & DagsHub
+Boston Housing Regression with MLflow & DagsHub
 
 This project demonstrates how to train, evaluate, and track multiple machine learning regression models on the **Boston Housing Dataset** using **MLflow** integrated with **DagsHub**.
 
-## 📌 Objective
+## Objective
 
 The objective of this project is to:
 
@@ -13,7 +13,7 @@ The objective of this project is to:
 
 ---
 
-## 📂 Dataset
+## Dataset
 
 **Dataset:** `BostonHousing.csv`
 
@@ -21,7 +21,7 @@ The dataset contains housing-related features such as crime rate, number of room
 
 ---
 
-## 🤖 Models Implemented
+## Models Implemented
 
 The following regression models were trained and evaluated:
 
@@ -31,7 +31,7 @@ The following regression models were trained and evaluated:
 
 ---
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 
 Each model was evaluated using the following regression metrics:
 
@@ -43,7 +43,7 @@ These metrics were automatically logged using **MLflow** for every experiment ru
 
 ---
 
-## 🚀 Experiment Tracking
+## Experiment Tracking
 
 This project uses **MLflow** integrated with **DagsHub** to:
 
@@ -55,7 +55,7 @@ This project uses **MLflow** integrated with **DagsHub** to:
 
 ---
 
-## 📈 Results
+## Results
 
 | Model | MAE | RMSE | R² Score |
 |-------|-----|------|----------|
@@ -65,7 +65,7 @@ This project uses **MLflow** integrated with **DagsHub** to:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 .
@@ -90,7 +90,7 @@ This project uses **MLflow** integrated with **DagsHub** to:
 
 ---
 
-## 🔗 Repository Links
+## Repository Links
 
 ### GitHub Repository
 https://github.com/Yashwanth-R19/DevOps
@@ -100,6 +100,6 @@ https://dagshub.com/Yashwanth-R19/Boston-Housing-MLFlow/experiments
 
 ---
 
-## 📌 Conclusion
+## Conclusion
 
 This project demonstrates a complete machine learning experimentation workflow by combining **Scikit-learn**, **XGBoost**, **MLflow**, and **DagsHub**. It highlights how experiment tracking improves reproducibility, model comparison, and overall machine learning lifecycle management.
