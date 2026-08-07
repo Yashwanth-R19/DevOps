@@ -73,7 +73,7 @@ jobs:
   # Deploy only after passing the quality gate.
   deploy_to_huggingface:
     needs: train_and_evaluate
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
     runs-on: ubuntu-latest
 
