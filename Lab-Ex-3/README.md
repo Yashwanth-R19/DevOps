@@ -1,4 +1,4 @@
-Boston Housing Regression with MLflow & DagsHub
+# Boston Housing Regression with MLflow & DagsHub
 
 This project demonstrates how to train, evaluate, and track multiple machine learning regression models on the **Boston Housing Dataset** using **MLflow** integrated with **DagsHub**.
 
